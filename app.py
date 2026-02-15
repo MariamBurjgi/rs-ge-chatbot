@@ -18,9 +18,8 @@ def load_chain():
         return None
 
     # შეცვალე სახელი
-    vectorstore = Chroma(persist_directory="./chroma_new",
-    embedding_function=embedding_function)
-    
+    embedding_function = OpenAIEmbeddings()
+    vectorstore = Chroma(persist_directory="./chroma_new", embedding_function=embedding_function)
     #  k=10 (უფრო მეტ დოკუმენტს გადახედავს)
     retriever = vectorstore.as_retriever(search_kwargs={"k": 10})
 
