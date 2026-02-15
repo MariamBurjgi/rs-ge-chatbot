@@ -17,8 +17,9 @@ def load_chain():
         st.error("❌ API გასაღები ვერ ვიპოვე! გთხოვთ შეამოწმოთ .env ფაილი.")
         return None
 
-    embedding_function = OpenAIEmbeddings()
-    vectorstore = Chroma(persist_directory="./chroma_db", embedding_function=embedding_function)
+    # შეცვალე სახელი
+    vectorstore = Chroma(persist_directory="./chroma_new",
+    embedding_function=embedding_function)
     
     #  k=10 (უფრო მეტ დოკუმენტს გადახედავს)
     retriever = vectorstore.as_retriever(search_kwargs={"k": 10})
