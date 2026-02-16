@@ -19,9 +19,9 @@ def load_chain():
 
     # შეცვალე სახელი
     embedding_function = OpenAIEmbeddings()
-    vectorstore = Chroma(persist_directory="./chroma_new", embedding_function=embedding_function)
+    vectorstore = Chroma(persist_directory="./chroma_fixed", embedding_function=embedding_function)
     #  k=10 (უფრო მეტ დოკუმენტს გადახედავს)
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 10})
+    retriever = vectorstore.as_retriever(search_kwargs={"k": 50})
 
     llm = ChatOpenAI(model_name="gpt-4o", temperature=0)
 
